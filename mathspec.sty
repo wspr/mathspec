@@ -70,14 +70,6 @@
 
 \providecommand\currentmathstyle{\relax}
 
-%% Check whether a package is loaded.
-%%   \eu@package@loaded{<package>}
-\newcommand\eu@package@loaded[1]{
-  \@ifpackageloaded{#1}
-    {\eu@booltrue{eu@#1@loaded}}
-    {\eu@boolfalse{eu@#1@loaded}}}
-%% Test for amsmath. Do I need to do this here or at all?
-\eu@package@loaded{amsmath}
 
 %% Define the undefined Greek letters. Include all variant forms (same as normal
 %% forms if variant forms are unavailable). Latin F for digamma is better than
