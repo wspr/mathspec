@@ -1,15 +1,16 @@
 The mathspec package
 --------------------
 Font selection for mathematics with XeLaTeX
-version 0.2
+version 0.2b
 Andrew Gilbert Moschou
-Wednesday, 30 September 2009
+22 Dec 2016
+
+* v0.2b by Will Robertson: a bug fix update for fontspec and the new TU encoding
 
 This work is released under the LPPL v1.3c or later.
 
 The mathspec package provides an interface to select ordinary text fonts for
 typesetting mathematics with XeLaTeX.
-
 
 The package is developmental and later versions might to be incompatible with
 this version. This version is incompatible with earlier versions. The package
