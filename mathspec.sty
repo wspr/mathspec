@@ -70,6 +70,23 @@
 
 \providecommand\currentmathstyle{\relax}
 
+%% @-namespace fontspec variable:
+\ExplSyntaxOn
+\def\eu@enc{\g_fontspec_encoding_tl}
+\ExplSyntaxOff
+%% This is needed to transition to the TU encoding instead of EU1 (WSPR)
+
+%% Deprecated commands in fontspec:
+\ExplSyntaxOn
+\tl_set:Nn \zf@enc { \g_fontspec_encoding_tl }
+\cs_set:Npn \zf@fontspec #1 #2
+ {
+  \fontspec_select:nn {#1} {#2}
+  \tl_set:Nn \zf@family { \l_fontspec_family_tl }
+  \tl_set:Nn \zf@basefont { \l_fontspec_font }
+ }
+\ExplSyntaxOff
+%% These are still defined in fontspec at time of writing but maybe be removed in the future. (WSPR)
 
 %% Define the undefined Greek letters. Include all variant forms (same as normal
 %% forms if variant forms are unavailable). Latin F for digamma is better than
