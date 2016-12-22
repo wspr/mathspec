@@ -266,7 +266,7 @@
     \eu@boolfalse{Digits}
   \fi
   \eu@ifsomebooltrue{Digits}
-    {\DeclareSymbolFont{Digits:m:n}{EU1}{\eu@Digitsmathsfont}{m}{n}}
+    {\DeclareSymbolFont{Digits:m:n}{\eu@enc}{\eu@Digitsmathsfont}{m}{n}}
   \eu@ifbooltrue{Digits}
     {\fontfamily\eu@Digitsmathsfont\selectfont
      \DeclareMathSymbol{0}{\mathord}{\eu@DigitsArabic@symfont}{`0}
@@ -307,8 +307,8 @@
     \eu@boolfalse{LatinLowercase}
   \fi
   \eu@ifsomebooltrue{LatinUppercase,LatinLowercase}
-    {\DeclareSymbolFont{Latin:m:n}{EU1}{\eu@Latinmathsfont}{m}{n}
-     \DeclareSymbolFont{Latin:m:it}{EU1}{\eu@Latinmathsfont}{m}{it}}
+    {\DeclareSymbolFont{Latin:m:n}{\eu@enc}{\eu@Latinmathsfont}{m}{n}
+     \DeclareSymbolFont{Latin:m:it}{\eu@enc}{\eu@Latinmathsfont}{m}{it}}
   \eu@ifbooltrue{LatinUppercase}
     {\fontfamily\eu@Latinmathsfont\selectfont
      \DeclareMathSymbol{A}{\mathalpha}{\eu@LatinUppercase@symfont}{`A}
@@ -393,8 +393,8 @@
     \eu@boolfalse{GreekLowercase}
   \fi
   \eu@ifsomebooltrue{GreekUppercase,GreekLowercase}
-    {\DeclareSymbolFont{Greek:m:n}{EU1}{\eu@Greekmathsfont}{m}{n}
-     \DeclareSymbolFont{Greek:m:it}{EU1}{\eu@Greekmathsfont}{m}{it}}
+    {\DeclareSymbolFont{Greek:m:n}{\eu@enc}{\eu@Greekmathsfont}{m}{n}
+     \DeclareSymbolFont{Greek:m:it}{\eu@enc}{\eu@Greekmathsfont}{m}{it}}
   \eu@ifbooltrue{GreekUppercase}
     {\fontfamily\eu@Greekmathsfont\selectfont
      \XeTeXDeclareMathSymbol{Α}{\mathalpha}{\eu@GreekUppercase@symfont}{`Α}[\Alpha]
@@ -941,34 +941,34 @@
 \ernewcommand\setmathrm[2][]{
   \zf@fontspec{#1}{#2}
   \let\eu@mathrm\zf@family
-  \DeclareMathAlphabet{\mathrm}{EU1}{\eu@mathrm}{m}{n}
-  \SetMathAlphabet{\mathrm}{bold}{EU1}{\eu@mathrm}{bx}{n}
-  \DeclareMathAlphabet{\mathit}{EU1}{\eu@mathrm}{m}{it}
-  \DeclareMathAlphabet{\mathbf}{EU1}{\eu@mathrm}{bx}{n}
-  \SetMathAlphabet{\mathit}{bold}{EU1}{\eu@mathrm}{bx}{it}
-  \DeclareSymbolFont{Operators:m:n}{EU1}{\eu@mathrm}{m}{n}
+  \DeclareMathAlphabet{\mathrm}{\eu@enc}{\eu@mathrm}{m}{n}
+  \SetMathAlphabet{\mathrm}{bold}{\eu@enc}{\eu@mathrm}{bx}{n}
+  \DeclareMathAlphabet{\mathit}{\eu@enc}{\eu@mathrm}{m}{it}
+  \DeclareMathAlphabet{\mathbf}{\eu@enc}{\eu@mathrm}{bx}{n}
+  \SetMathAlphabet{\mathit}{bold}{\eu@enc}{\eu@mathrm}{bx}{it}
+  \DeclareSymbolFont{Operators:m:n}{\eu@enc}{\eu@mathrm}{m}{n}
   \def\operator@font{\expandafter\mathgroup\csname symOperators:m:n\endcsname}}
 \ernewcommand\setmathcal[2][]{
   \zf@fontspec{#1}{#2}
   \let\eu@mathcal\zf@family
-  \DeclareMathAlphabet{\mathcal}{EU1}{\eu@mathcal}{m}{n}}
+  \DeclareMathAlphabet{\mathcal}{\eu@enc}{\eu@mathcal}{m}{n}}
 \ernewcommand\setmathsf[2][]{
   \zf@fontspec{#1}{#2}
   \let\eu@mathsf\zf@family
-  \DeclareMathAlphabet{\mathsf}{EU1}{\eu@mathsf}{m}{n}
-  \SetMathAlphabet{\mathsf}{bold}{EU1}{\eu@mathsf}{bx}{n}}
+  \DeclareMathAlphabet{\mathsf}{\eu@enc}{\eu@mathsf}{m}{n}
+  \SetMathAlphabet{\mathsf}{bold}{\eu@enc}{\eu@mathsf}{bx}{n}}
 \ernewcommand\setmathtt[2][]{
   \zf@fontspec{#1}{#2}
   \let\eu@mathtt\zf@family
-  \DeclareMathAlphabet{\mathtt}{EU1}{\eu@mathtt}{m}{n}}
+  \DeclareMathAlphabet{\mathtt}{\eu@enc}{\eu@mathtt}{m}{n}}
 \ernewcommand\setmathfrak[2][]{
   \zf@fontspec{#1}{#2}
   \let\eu@mathfrak\zf@family
-  \DeclareMathAlphabet{\mathfrak}{EU1}{\eu@mathfrak}{m}{n}}
+  \DeclareMathAlphabet{\mathfrak}{\eu@enc}{\eu@mathfrak}{m}{n}}
 \ernewcommand\setmathbb[2][]{
   \zf@fontspec{#1}{#2}
   \let\eu@mathbb\zf@family
-  \DeclareMathAlphabet{\mathbb}{EU1}{\eu@mathbb}{m}{n}}
+  \DeclareMathAlphabet{\mathbb}{\eu@enc}{\eu@mathbb}{m}{n}}
 
 %% If amsmath is loaded, it must be loaded before mathspec. Checking for its
 %% existence \AtBeginDocument is too late because the damage is already done
