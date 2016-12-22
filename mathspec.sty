@@ -2,13 +2,11 @@
 \ProvidesPackage{mathspec}
   [2009/09/30 v0.2 LaTeX Package (Mathematics font selection for XeLaTeX)]
 
-%% Require etoolbox for convenience and amstext for well sized text in maths
-%% mode. ifxetex is obvious.
+%% Requirements:
 \RequirePackage{etoolbox}
 \RequirePackage{amstext}
-\RequirePackage{ifxetex}
 
-%% Require a recent XeTeX version.
+\RequirePackage{ifxetex}
 \RequireXeTeX
 \ifcsundef{XeTeXglyphbounds}
   {\PackageError{mathspec}
@@ -51,7 +49,7 @@
   \ifnumcomp{#3}{<}{#1}{\boolfalse{temp}}{\relax}%
   \ifbool{temp}}
 
-%% Options.
+%% Options:
 \DeclareOption{normalskips}
   {\PackageWarning{mathspec}
      {Package option `normalskips' is deprecated}}
@@ -106,15 +104,12 @@
 \DeclareMathSymbol{\Chi}{\mathalpha}{operators}{"58}
 \DeclareMathSymbol{\omicron}{\mathord}{letters}{"6F}
 \let\varbeta\beta
-\ifdef{\varkappa}
-  {\relax}
+\ifdef{\varkappa}{\relax}
   {\let\varkappa\kappa}
-\ifdef{\varTheta}
-  {\let\eu@cm@varTheta\varTheta}
+\ifdef{\varTheta}{\let\eu@cm@varTheta\varTheta}
   {\relax}
 \let\varTheta\Theta
-\ifdef{\digamma}
-  {\let\Digamma\digamma}
+\ifdef{\digamma}{\let\Digamma\digamma}
   {\DeclareMathSymbol{\Digamma}{\mathalpha}{operators}{"46}
    \DeclareMathSymbol{\digamma}{\mathord}{letters}{"46}}
 
@@ -997,14 +992,10 @@
 %% conditions of the LaTeX Project Public License, either version 1.3c
 %% of this license or (at your option) any later version.
 %% The latest version of this license is in:
-%% 
 %%   http://www.latex-project.org/lppl.txt
-%% 
 %% and version 1.3c or later is part of all recent distributions of LaTeX.
 %% 
 %% This work has the LPPL maintenance status ‘maintained’.
-%% 
 %% The Current Maintainer of this work is Andrew Gilbert Moschou.
-%% 
-%% This work consists of the files mathspec.sty and mathsepc4.tex.
+%% This work consists of the files mathspec.sty and mathspec.tex.
 
