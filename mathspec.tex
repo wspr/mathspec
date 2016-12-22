@@ -30,16 +30,47 @@
      style=latex,#1}}
   {}
 
-\setmainfont[Numbers=OldStyle]{Sabon LT Std}
-\setallsansfonts[Numbers={OldStyle,Proportional},Scale=MatchLowercase]{Candara}
-\setallmonofonts[Numbers=OldStyle,Scale=MatchLowercase]{Consolas}
-\setmathsfont(Digits,Latin)[Scale=MatchLowercase]{Bembo MT}
-\setmathsfont(Greek)[Scale=MatchLowercase]{STIXGeneral}
-\setmathrm{Sabon LT Std}
+\setmainfont[
+  Extension = .otf,
+  UprightFont = *-regular,
+  ItalicFont  = *-italic,
+  BoldFont    = *-bold,
+  BoldItalicFont = *-bolditalic,
+  Numbers=OldStyle
+    ]{texgyrepagella}
+\setallsansfonts[
+  Extension = .otf,
+  UprightFont = *-Regular,
+  ItalicFont  = *-Italic,
+  BoldFont    = *-Bold,
+  BoldItalicFont = *-BoldItalic,
+  Numbers={OldStyle,Proportional},
+  Scale=MatchLowercase
+    ]{UniversalisADFStd}
+\setallmonofonts[
+  Scale=MatchLowercase,
+  BoldFont=Inconsolatazi4-Bold.otf,
+  AutoFakeSlant]{Inconsolatazi4-Regular.otf}
+\setmathsfont(Digits,Latin)[
+  Extension = .otf ,
+  UprightFont = *-Regular,
+  ItalicFont  = *-Italic,
+  BoldFont    = *-Bold,
+  BoldItalicFont = *-BoldItalic,
+    ]{LibreBaskerville}
+\setmathsfont(Greek)[
+  Extension = .otf ,
+  UprightFont = *-Regular,
+  ItalicFont  = *-Italic,
+  BoldFont    = *-Bold,
+  BoldItalicFont = *-BoldItalic,
+    ]{STIX}
+\setmathrm{LibreBaskerville-Regular.otf}
+
 \exchangeforms{phi}
 \setminwhitespace[750]
 
-\newfontfamily\MathematicalPi{Mathematical Pi LT Std}
+\newfontfamily\MathematicalPi{STIXMath-Regular.otf}
 \newcommand\MP[1]{{\MathematicalPi #1}}
 
 \makeatletter
@@ -132,8 +163,9 @@
   pdfsubject={Font selection for mathematics with XeLaTeX},
   pdfauthor={Andrew Gilbert Moschou}}
 
-\title{The \textsf{\spotcolor mathspec} package\\[0.25em]\mdseries\itshape\normalsize Font selection for mathematics with \XeLaTeX\\[1ex]\mdseries\upshape version 0.2}
-\author{Andrew Gilbert Moschou\\\texttt{andmos@gmail.com}}
+\title{The \textsf{\spotcolor mathspec} package\\[0.25em]\mdseries\itshape\normalsize Font selection for mathematics with \XeLaTeX\\[1ex]\mdseries\upshape version 0.2b}
+\author{Andrew Gilbert Moschou\thanks{v0.2b update by Will Robertson (\texttt{will.robertson@latex-project.org}).}\\\texttt{andmos@gmail.com}
+}
 \makeatletter\let\@today\today\def\today{\scshape\MakeLowercase{\@today}}\makeatother
 
 \hyphenation{in-com-pa-ti-ble Hoef-ler ma-the-ma-tics des-pite}
@@ -353,7 +385,7 @@ This command is equivalent to:
 
 \subsection{A further example}
 
-This document is typeset with the following:
+This document used to be typeset with the following:
 
 \begin{example}
 \setmainfont[Numbers=OldStyle]{Sabon LT Std}
@@ -511,10 +543,10 @@ Note that this value corresponds to the inserted spaces on both sides for each s
 
 \begin{table}
 \begin{tabular}{@{}rl@{}}\topbottomrule
-Text & \fontspec{Bembo MT}\itshape abcdefghijklmnopqrstuvwxyz\\
+Text & \fontspec{LibreBaskerville-Italic.otf} abcdefghijklmnopqrstuvwxyz\\
 Mathematics & $\"abcdefghijklmnopqrstuvwxyz"$\\\bottomrule
 \end{tabular}
-\caption{Bembo \acr{MT} in text and spaced mathematics.\label{tab:stix}}
+\caption{Libre Baskerville \acr{MT} in text and spaced mathematics.\label{tab:stix}}
 \end{table}
 
 \end{ltxsyntax}
