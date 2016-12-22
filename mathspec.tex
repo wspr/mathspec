@@ -30,13 +30,15 @@
      style=latex,#1}}
   {}
 
+\linespread{1.05}
 \setmainfont[
   Extension = .otf,
   UprightFont = *-regular,
   ItalicFont  = *-italic,
   BoldFont    = *-bold,
   BoldItalicFont = *-bolditalic,
-  Numbers=OldStyle
+  Numbers=OldStyle,
+  Scale=MatchLowercase,
     ]{texgyrepagella}
 \setallsansfonts[
   Extension = .otf,
@@ -52,6 +54,7 @@
   BoldFont=Inconsolatazi4-Bold.otf,
   AutoFakeSlant]{Inconsolatazi4-Regular.otf}
 \setmathsfont(Digits,Latin)[
+  Scale = 0.85,
   Extension = .otf ,
   UprightFont = *-Regular,
   ItalicFont  = *-Italic,
@@ -64,8 +67,9 @@
   ItalicFont  = *-Italic,
   BoldFont    = *-Bold,
   BoldItalicFont = *-BoldItalic,
+  Scale=MatchLowercase,
     ]{STIX}
-\setmathrm{LibreBaskerville-Regular.otf}
+\setmathrm[Scale=MatchLowercase]{LibreBaskerville-Regular.otf}
 
 \exchangeforms{phi}
 \setminwhitespace[750]
@@ -202,7 +206,11 @@ This package provides mathematics alphabets in any of the same typefaces that ar
 
 \cmditem{usepackage}\oprm{\sty{mathspec} and \sty{fontspec} options}|{mathspec}|
 
-\noindent To use the package, put \cmd{usepackage}|{mathspec}| in the preamble of the document. It is not necessary to put \cmd{usepackage}|{fontspec}| because \sty{mathspec} will ensure that \sty{fontspec} is loaded anyway. To load \sty{fontspec} with some options, parse them through \sty{mathspec}, for example, \cmd{usepackage}|[quiet]|\permitbreak|{mathspec}| is equivalent to \cmd{usepackage}\permitbreak|[quiet]|\permitbreak|{fontspec}|\cmd{usepackage}|{mathspec}|.
+\noindent To use the package, put \cmd{usepackage}|{mathspec}| in the preamble of the document. It is not necessary to put \cmd{usepackage}|{fontspec}| because \sty{mathspec} will ensure that \sty{fontspec} is loaded anyway. To load \sty{fontspec} with some options, parse them through \sty{mathspec}, for example, \cmd{usepackage}|[quiet]|\permitbreak|{mathspec}| is equivalent to:
+\begin{verbatim}
+    \usepackage[quiet]{fontspec}
+    \usepackage{mathspec}
+\end{verbatim}
 
 Actually, \sty{mathspec} ordinarily loads \sty{fontspec} with the \opt{no-math} option. To cancel this, explicitly use the \opt{math} option: e.g.\ \cmd{usepackage}|[math]{mathspec}|.
 
@@ -285,6 +293,7 @@ You can try the package \sty{MnSymbol}, which has greater (and more uniform) cov
 
 \subsection{Examples}
 
+The following command:
 \begin{example}
 \setmathsfont(Digits,Latin,Greek)
     [Numbers={Lining,Proportional}]{Minion Pro}
@@ -297,8 +306,7 @@ is equivalent to:
 \end{example}
 and indicates that all digits, Latin and Greek characters are to be set in Minion Pro with lining, proportional digits, with digits and uppercase Greek in regular and Latin and lowercase Greek in italic, which are the default shapes.
 
-\bigskip
-
+The following command:
 \begin{example}
 \setmathsfont(Digits,Greek)
     [Uppercase=Plain,Lowercase=Regular,Scale=MatchLowercase]
@@ -543,10 +551,10 @@ Note that this value corresponds to the inserted spaces on both sides for each s
 
 \begin{table}
 \begin{tabular}{@{}rl@{}}\topbottomrule
-Text & \fontspec{LibreBaskerville-Italic.otf} abcdefghijklmnopqrstuvwxyz\\
+Text & \fontspec[ItalicFont=LibreBaskerville-Italic.otf]{LibreBaskerville-Regular.otf}\itshape abcdefghijklmnopqrstuvwxyz\\
 Mathematics & $\"abcdefghijklmnopqrstuvwxyz"$\\\bottomrule
 \end{tabular}
-\caption{Libre Baskerville \acr{MT} in text and spaced mathematics.\label{tab:stix}}
+\caption{Libre Baskerville in text and spaced mathematics.\label{tab:stix}}
 \end{table}
 
 \end{ltxsyntax}
@@ -555,16 +563,16 @@ Now, the spacing in equations~(\ref{eq:1}, \ref{eq:2}) are improved by:
 \begin{example}
 \begin{align}
 "f\left("x\right) &= \sum_{"n = -\infty}^\infty"c_{"n}"e^{\"jnx"} \\
-"c_{"n} &= \frac{1}{2"π}\int_{-"π}^"π"f\left("x\right)"e^{-\"jnx"}\,\mathrm d"x
+"c_{"n} &= \frac{1}{2"π}\int_{-"π}^"π"f\bigl("x\bigr)"e^{-\"jnx"}\,\mathrm d"x
 \end{align}
 \end{example}
 
 \begin{align}
 "f\left("x\right) &= \sum_{"n = -\infty}^\infty "c_{"n}"e^{\"jnx"}\\
-"c_{"n} &= \frac 1{2"π}\int_{-"π}^{"π}"f\left("x\right)"e^{-\"jnx"}\,\mathrm d"x
+"c_{"n} &= \frac 1{2"π}\int_{-"π}^{"π}"f\bigl("x\bigr)"e^{-\"jnx"}\,\mathrm d"x
 \end{align}
 
-Also note that the spacing is improved by replacing |(x)| with |\left(x\right)| (which you should be doing anyway).
+Also note that the spacing is improved by replacing |(x)| with |\bigl(x\bigr)| (which you should be doing anyway).  %% changed from \left..\right to \bigl..\bigr (WSPR)
 
 \section{Compatability}
 
